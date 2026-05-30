@@ -1,1 +1,271 @@
 /* Login page styling is composed with Tailwind utility classes in Login.jsx. */
+
+@keyframes premium-wave {
+  0% {
+    transform: translateX(-35%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(35%) skewX(-12deg);
+  }
+}
+
+@keyframes premium-pulse-ring {
+  0%,
+  100% {
+    opacity: 0.32;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.08;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes premium-status-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes premium-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(8px, -10px, 0);
+  }
+}
+
+@keyframes premium-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.premium-wave::before {
+  animation: premium-wave 9s linear infinite alternate;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.24), transparent);
+  content: '';
+  height: 160%;
+  left: -30%;
+  position: absolute;
+  top: -30%;
+  width: 70%;
+}
+
+.premium-pulse-ring::before {
+  animation: premium-pulse-ring 2.8s ease-in-out infinite;
+  border: 1px solid rgba(220, 38, 38, 0.42);
+  border-radius: inherit;
+  content: '';
+  inset: -7px;
+  position: absolute;
+}
+
+.premium-status {
+  animation: premium-status-pulse 2.6s ease-in-out infinite;
+}
+
+.premium-ripple {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.premium-ripple::after {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.42) 0%, transparent 58%);
+  content: '';
+  height: 140%;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 420ms ease, opacity 520ms ease;
+  width: 140%;
+  z-index: -1;
+}
+
+.premium-ripple:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.premium-particle {
+  animation: premium-float 8s ease-in-out infinite;
+  background: rgba(220, 38, 38, 0.08);
+  border-radius: 9999px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.premium-active-gradient {
+  animation: premium-gradient 5s ease-in-out infinite alternate;
+  background-size: 180% 180%;
+}
+
+.premium-profile-banner {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.2) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 24%, rgba(255, 255, 255, 0.16) 0 1px, transparent 2px),
+    linear-gradient(118deg, #fb1f35 0%, #ec0015 42%, #c90012 100%);
+}
+
+.premium-profile-banner::before {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 54%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px 12px);
+  content: '';
+  inset: 0;
+  opacity: 0.45;
+  position: absolute;
+}
+
+.premium-profile-banner::after {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 55% 45% 0 0 / 65% 55% 0 0;
+  bottom: -46px;
+  content: '';
+  height: 86px;
+  left: -4%;
+  position: absolute;
+  transform: rotate(1.8deg);
+  width: 108%;
+}
+
+.premium-line-accent {
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.24), transparent);
+  height: 1px;
+  position: absolute;
+}
+
+@keyframes contact-card-glow {
+  0%,
+  100% {
+    transform: translateX(-25%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(35%) translateY(12%);
+  }
+}
+
+@keyframes contact-icon-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(220, 38, 38, 0));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.35));
+    transform: scale(1.08);
+  }
+}
+
+.contact-info-card::before {
+  animation: contact-card-glow 8s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.12), transparent 62%);
+  content: '';
+  height: 220px;
+  left: 8%;
+  pointer-events: none;
+  position: absolute;
+  top: -80px;
+  width: 420px;
+}
+
+.contact-info-icon {
+  animation: contact-icon-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes row-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-motion {
+  animation: page-enter 360ms ease-out both;
+}
+
+.focus-glow {
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.focus-glow:focus-within {
+  background: #fff;
+  border-color: rgba(220, 38, 38, 0.28);
+  box-shadow: 0 0 0 4px rgba(254, 226, 226, 0.78);
+}
+
+.stagger-table tbody tr {
+  animation: row-enter 280ms ease-out both;
+}
+
+.stagger-table tbody tr:nth-child(1) {
+  animation-delay: 40ms;
+}
+
+.stagger-table tbody tr:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.stagger-table tbody tr:nth-child(3) {
+  animation-delay: 140ms;
+}
+
+.stagger-table tbody tr:nth-child(4) {
+  animation-delay: 190ms;
+}
+
+.animated-card {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.animated-card::before {
+  animation: contact-card-glow 9s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.1), transparent 64%);
+  content: '';
+  height: 220px;
+  left: 4%;
+  pointer-events: none;
+  position: absolute;
+  top: -90px;
+  width: 380px;
+  z-index: -1;
+}
+
+.animated-card:hover {
+  border-color: rgba(220, 38, 38, 0.28);
+  box-shadow: 0 22px 44px rgba(220, 38, 38, 0.1);
+}
+
+.animated-card svg {
+  animation: contact-icon-pulse 3s ease-in-out infinite;
+}

@@ -13,6 +13,8 @@ function App() {
       <Route path="/admin/session-logs" element={<AdminDashboardPage />} />
       <Route path="/admin" element={<Navigate to="/admin/session-logs" replace />} />
       <Route path="/customer/:walletId/dashboard/:service" element={<CustomerDashboardPage />} />
+      <Route path="/customer/:walletId/control-center/:controlPage/:memberAction/:memberId" element={<CustomerDashboardPage />} />
+      <Route path="/customer/:walletId/control-center/:controlPage/:memberAction" element={<CustomerDashboardPage />} />
       <Route path="/customer/:walletId/control-center/:controlPage" element={<CustomerDashboardPage />} />
       <Route path="/customer/:walletId/services/:serviceType" element={<CustomerDashboardPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
