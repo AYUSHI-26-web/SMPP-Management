@@ -49,7 +49,6 @@ const roles = [
     primary: true,
   },
 ]
-const rolePermissionGroups = ['Dashboard', 'Own services', 'Wallet usage management', 'Own rate/plans', 'Own service account reports']
 
 const pageMotion = {
   initial: { opacity: 0, y: 16 },
@@ -106,7 +105,7 @@ function ControlTabs({ activePage = 'team-management', walletId = 'Zosto-UW-012'
 
 function InfoPanel({ title, children }) {
   return (
-    <motion.div className="rounded-2xl border border-white/70 bg-white/75 p-5 shadow-lg shadow-slate-200/50 backdrop-blur transition-shadow" {...cardHover}>
+    <motion.div className="animated-card rounded-2xl border border-white/70 bg-white/75 p-5 shadow-lg shadow-slate-200/50 backdrop-blur transition-shadow" {...cardHover}>
       <h3 className="text-sm font-semibold text-slate-950">{title}</h3>
       <div className="mt-4 border-t border-slate-200 pt-4">{children}</div>
     </motion.div>
@@ -133,7 +132,7 @@ function MemberOverview({ Icon, liftMotion, member, walletId, activePage }) {
         <span className="text-slate-950">Overview</span>
       </div>
 
-      <motion.div className="relative overflow-hidden rounded-3xl border border-white/80 bg-white/80 shadow-2xl shadow-slate-200/70 backdrop-blur" {...cardHover}>
+      <motion.div className="animated-card relative overflow-hidden rounded-3xl border border-white/80 bg-white/80 shadow-2xl shadow-slate-200/70 backdrop-blur" {...cardHover}>
         <div className="premium-profile-banner relative h-36 overflow-hidden">
           <span className="absolute left-8 top-8 h-16 w-16 rotate-45 rounded-2xl border border-white/20" />
           <span className="absolute right-14 top-9 h-20 w-20 rounded-full border border-white/20" />
@@ -277,7 +276,7 @@ function MemberOverview({ Icon, liftMotion, member, walletId, activePage }) {
 
 function FormSection({ title, children }) {
   return (
-    <motion.section className="rounded-xl border border-slate-200 bg-slate-50 p-5 shadow-sm sm:p-6" {...cardHover}>
+    <motion.section className="animated-card rounded-xl border border-slate-200 bg-slate-50 p-5 shadow-sm sm:p-6" {...cardHover}>
       <h3 className="text-base font-semibold text-slate-950">{title}</h3>
       <div className="mt-5 border-t border-slate-200 pt-5">{children}</div>
     </motion.section>
@@ -289,7 +288,7 @@ function FormField({ label, required, icon, Icon, type = 'text', placeholder, va
     <label className="block text-xs font-semibold text-slate-700">
       {label}
       {required && <span className="text-red-600"> *</span>}
-      <span className="mt-2 flex h-12 items-center gap-3 border border-slate-300 bg-white px-4 text-sm font-medium text-slate-950 transition focus-within:border-red-300 focus-within:ring-4 focus-within:ring-red-50">
+      <span className="focus-glow mt-2 flex h-12 items-center gap-3 border border-slate-300 bg-white px-4 text-sm font-medium text-slate-950">
         {icon && <Icon type={icon} className="h-4 w-4 text-red-600" />}
         <input className="min-w-0 flex-1 bg-transparent outline-none placeholder:text-slate-400" defaultValue={value} placeholder={placeholder} readOnly={readOnly} type={type} />
         {type === 'password' && <Icon type="eye" className="h-4 w-4 text-slate-500" />}
@@ -464,13 +463,13 @@ function RoleManagementPage({ Icon, liftMotion, walletId, activePage }) {
       <span className="premium-particle bottom-16 left-6 h-9 w-9 [animation-delay:1.1s]" />
       <ControlTabs activePage={activePage} walletId={walletId} />
 
-      <motion.div className="rounded-xl border border-slate-200 bg-white/85 p-5 shadow-sm backdrop-blur sm:p-6" {...cardHover}>
+      <motion.div className="animated-card rounded-xl border border-slate-200 bg-white/85 p-5 shadow-sm backdrop-blur sm:p-6" {...cardHover}>
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h3 className="text-2xl font-semibold tracking-tight text-slate-950">Role Management</h3>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <label className="flex h-11 min-w-72 items-center gap-3 border border-slate-200 bg-white px-4 text-xs text-slate-500 transition focus-within:border-red-200 focus-within:bg-white focus-within:ring-4 focus-within:ring-red-50">
+            <label className="focus-glow flex h-11 min-w-72 items-center gap-3 border border-slate-200 bg-white px-4 text-xs text-slate-500">
               <Icon type="search" className="h-5 w-5 text-slate-950" />
               <input className="min-w-0 flex-1 bg-transparent outline-none placeholder:text-slate-500" placeholder="Search here" type="search" />
             </label>
@@ -525,7 +524,7 @@ function RoleManagementPage({ Icon, liftMotion, walletId, activePage }) {
   )
 }
 
-function AddRolePage({ Icon, liftMotion, walletId, activePage }) {
+function AddRolePage({ liftMotion, walletId, activePage }) {
   const navigate = useNavigate()
 
   return (
@@ -540,7 +539,7 @@ function AddRolePage({ Icon, liftMotion, walletId, activePage }) {
       <span className="premium-particle bottom-28 left-8 h-9 w-9 [animation-delay:1.2s]" />
       <ControlTabs activePage={activePage} walletId={walletId} />
 
-      <motion.div className="rounded-xl border border-slate-200 bg-white/85 p-5 shadow-sm backdrop-blur sm:p-6" {...cardHover}>
+      <motion.div className="animated-card rounded-xl border border-slate-200 bg-white/85 p-5 shadow-sm backdrop-blur sm:p-6" {...cardHover}>
         <h3 className="text-xl font-semibold tracking-tight text-slate-950">Add a New Role</h3>
         <div className="mt-5 border-t border-slate-200 pt-5">
           <div className="mx-auto max-w-6xl space-y-6">
@@ -557,7 +556,7 @@ function AddRolePage({ Icon, liftMotion, walletId, activePage }) {
               <textarea className="mt-2 min-h-24 w-full resize-y rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-red-300 focus:ring-4 focus:ring-red-50" maxLength={120} placeholder="Enter role description" />
             </label>
 
-            <div className="border-t border-slate-200 pt-6">
+            {/* <div className="border-t border-slate-200 pt-6">
               <h3 className="text-xl font-semibold text-slate-950">Role Permissions</h3>
               <div className="mt-5 space-y-3">
                 {rolePermissionGroups.map((permission, index) => (
@@ -576,7 +575,7 @@ function AddRolePage({ Icon, liftMotion, walletId, activePage }) {
                   </motion.button>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             <div className="flex justify-end gap-3 border-t border-slate-200 pt-5">
               <motion.button className="premium-ripple h-11 min-w-32 rounded-lg border border-slate-700 bg-white px-5 text-sm font-semibold text-slate-700 transition hover:border-red-200 hover:text-red-700" type="button" onClick={() => navigate(`/customer/${walletId}/control-center/roles-management`)} {...liftMotion}>
@@ -590,6 +589,54 @@ function AddRolePage({ Icon, liftMotion, walletId, activePage }) {
         </div>
       </motion.div>
     </motion.form>
+  )
+}
+
+function OrganizationInformationPage({ Icon, walletId, activePage }) {
+  return (
+    <motion.section className="relative mt-7 space-y-5 overflow-hidden" {...pageMotion}>
+      <span className="premium-particle right-8 top-16 h-14 w-14" />
+      <span className="premium-particle bottom-16 left-6 h-9 w-9 [animation-delay:1.1s]" />
+      <ControlTabs activePage={activePage} walletId={walletId} />
+
+      <motion.div
+        className="contact-info-card relative mx-auto mt-12 max-w-6xl overflow-hidden rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-sm transition-colors hover:border-red-200 sm:p-8"
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -5, boxShadow: '0 24px 48px rgba(220, 38, 38, 0.12)' }}
+        transition={{ type: 'spring', stiffness: 260, damping: 24 }}
+      >
+        <h3 className="relative text-2xl font-semibold tracking-tight text-slate-950">Contact Information</h3>
+        <div className="relative mt-6 border-t border-slate-200 pt-6">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="flex items-start gap-3">
+              <Icon type="card" className="contact-info-icon mt-0.5 h-5 w-5 text-red-600" />
+              <div>
+                <p className="text-sm font-semibold text-slate-500">Company Name</p>
+                <p className="mt-2 text-lg font-semibold text-slate-950">Ayushi</p>
+                <p className="mt-1 text-sm font-semibold text-slate-500">SV Customer Id: <span className="font-medium">SV1090103738</span></p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <Icon type="calendar" className="contact-info-icon mt-0.5 h-5 w-5 text-red-600" />
+              <div>
+                <p className="text-sm font-semibold text-slate-500">Registered On</p>
+                <p className="mt-2 text-lg font-semibold text-slate-950">23/05/2026, 02:50:08 pm</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <Icon type="profile" className="contact-info-icon mt-0.5 h-5 w-5 text-red-600" />
+              <div>
+                <p className="text-sm font-semibold text-slate-500">Account Manager</p>
+                <p className="mt-2 text-lg font-semibold text-slate-950">Accountmanager</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.section>
   )
 }
 
@@ -609,7 +656,7 @@ function ControlCenterPage({ Icon, liftMotion, walletId = 'Zosto-UW-012', contro
   }
 
   if (memberAction === 'add' && activePage === 'roles-management') {
-    return <AddRolePage Icon={Icon} liftMotion={liftMotion} walletId={walletId} activePage={activePage} />
+    return <AddRolePage liftMotion={liftMotion} walletId={walletId} activePage={activePage} />
   }
 
   if (memberAction === 'add') {
@@ -618,6 +665,10 @@ function ControlCenterPage({ Icon, liftMotion, walletId = 'Zosto-UW-012', contro
 
   if (activePage === 'roles-management') {
     return <RoleManagementPage Icon={Icon} liftMotion={liftMotion} walletId={walletId} activePage={activePage} />
+  }
+
+  if (activePage === 'organization-information') {
+    return <OrganizationInformationPage Icon={Icon} walletId={walletId} activePage={activePage} />
   }
 
   return (
@@ -632,7 +683,7 @@ function ControlCenterPage({ Icon, liftMotion, walletId = 'Zosto-UW-012', contro
           { label: 'Assigned services', value: assignedServices, icon: 'filter' },
           { label: 'Wallet access', value: 'All', icon: 'shield' },
         ].map((item) => (
-          <motion.div key={item.label} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow" {...cardHover}>
+          <motion.div key={item.label} className="animated-card rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow" {...cardHover}>
             <div className="flex items-center justify-between gap-4">
               <span>
                 <span className="block text-xs font-medium uppercase tracking-wide text-slate-500">{item.label}</span>
@@ -646,7 +697,7 @@ function ControlCenterPage({ Icon, liftMotion, walletId = 'Zosto-UW-012', contro
         ))}
       </div>
 
-      <motion.div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" {...cardHover}>
+      <motion.div className="animated-card rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" {...cardHover}>
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-4">
             <span className="grid h-12 w-12 place-items-center rounded-lg bg-red-50 text-red-600">
@@ -658,7 +709,7 @@ function ControlCenterPage({ Icon, liftMotion, walletId = 'Zosto-UW-012', contro
             </span>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <label className="flex h-11 min-w-72 items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 px-4 text-xs text-slate-500 transition focus-within:border-red-200 focus-within:bg-white focus-within:ring-4 focus-within:ring-red-50">
+            <label className="focus-glow flex h-11 min-w-72 items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 px-4 text-xs text-slate-500">
               <Icon type="search" className="h-5 w-5 text-slate-500" />
               <input className="min-w-0 flex-1 bg-transparent outline-none placeholder:text-slate-500" placeholder="Search by Name" type="search" />
             </label>
@@ -673,7 +724,7 @@ function ControlCenterPage({ Icon, liftMotion, walletId = 'Zosto-UW-012', contro
           </div>
         </div>
 
-        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+        <div className="animated-card mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white">
           <table className="w-full min-w-[1000px] border-collapse text-left text-xs">
             <thead>
               <tr className="bg-slate-50 text-slate-600">
@@ -773,7 +824,7 @@ function ControlCenterPage({ Icon, liftMotion, walletId = 'Zosto-UW-012', contro
         </div>
       </motion.div>
 
-      <motion.div className="premium-wave relative overflow-hidden rounded-xl border border-red-100 bg-red-50/60 p-5 shadow-sm" {...cardHover}>
+      <motion.div className="animated-card premium-wave relative overflow-hidden rounded-xl border border-red-100 bg-red-50/60 p-5 shadow-sm" {...cardHover}>
         <div className="relative flex items-center gap-5">
           <span className="grid h-12 w-12 place-items-center rounded-lg bg-red-600 text-white shadow-md shadow-red-100">
             <Icon type="shield" className="h-6 w-6" />

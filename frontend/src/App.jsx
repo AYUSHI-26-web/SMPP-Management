@@ -1,7 +1,8 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import CustomerDashboardPage from './pages/CustomerDashboardPage'
-import LoginPage from './pages/LoginPage'
-import WalletSelectPage from './pages/WalletSelectPage'
+import AdminDashboardPage from './pages/admin/AdminDashboardPage'
+import CustomerDashboardPage from './pages/customer/CustomerDashboardPage'
+import LoginPage from './pages/user/LoginPage'
+import WalletSelectPage from './pages/user/WalletSelectPage'
 import './App.css'
 
 function App() {
@@ -9,6 +10,8 @@ function App() {
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/select-wallet" element={<WalletSelectPage />} />
+      <Route path="/admin/session-logs" element={<AdminDashboardPage />} />
+      <Route path="/admin" element={<Navigate to="/admin/session-logs" replace />} />
       <Route path="/customer/:walletId/dashboard/:service" element={<CustomerDashboardPage />} />
       <Route path="/customer/:walletId/control-center/:controlPage/:memberAction/:memberId" element={<CustomerDashboardPage />} />
       <Route path="/customer/:walletId/control-center/:controlPage/:memberAction" element={<CustomerDashboardPage />} />

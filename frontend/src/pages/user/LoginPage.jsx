@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-import loginImg from './assets/login.png'
-import telecomLogo from './assets/telecom.jpeg'
+import loginImg from '../../assets/login.png'
+import telecomLogo from '../../assets/telecom.jpeg'
 
 const floatingIcons = [
   { label: 'SMS', className: 'left-[10%] top-[30%]', color: 'bg-red-500', delay: 0 },
@@ -63,10 +63,11 @@ function Login() {
   const [email, setEmail] = useState('ayushisri306@gmail.com')
   const [password, setPassword] = useState('password123')
   const [showPassword, setShowPassword] = useState(false)
+  const [loginMode, setLoginMode] = useState('customer')
 
   function handleSubmit(event) {
     event.preventDefault()
-    navigate('/select-wallet')
+    navigate(loginMode === 'admin' ? '/admin/session-logs' : '/select-wallet')
   }
 
   return (
@@ -146,7 +147,25 @@ function Login() {
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-red-600">Welcome back</p>
           <h2 className="mt-2 text-3xl font-black tracking-tight text-neutral-750 sm:text-2xl">Login to your account</h2>
 
-          <label className="mt-6 block text-sm font-semibold text-neutral-800" htmlFor="email">
+          <div className="mt-6 grid grid-cols-2 gap-2 rounded-2xl border border-red-100 bg-red-50/70 p-1">
+            {[
+              ['customer', 'Customer'],
+              ['admin', 'Admin'],
+            ].map(([mode, label]) => (
+              <button
+                key={mode}
+                type="button"
+                className={`h-11 rounded-xl text-sm font-black transition ${
+                  loginMode === mode ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'text-red-700 hover:bg-white/80'
+                }`}
+                onClick={() => setLoginMode(mode)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          <label className="mt-5 block text-sm font-semibold text-neutral-800" htmlFor="email">
             Email ID <span className="text-red-600">*</span>
           </label>
           <div className="mt-2 flex h-14 items-center gap-4 rounded-2xl border border-red-200 bg-white/75 px-5 text-red-600 shadow-sm transition focus-within:border-red-500 focus-within:bg-white focus-within:ring-4 focus-within:ring-red-100">

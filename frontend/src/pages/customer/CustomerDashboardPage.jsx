@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import telecomLogo from './assets/telecom.jpeg'
-import ChangePasswordPage from './pages/customer/ChangePasswordPage'
-import ControlCenterPage from './pages/customer/ControlCenterPage'
-import ProfileDetailsPage from './pages/customer/ProfileDetailsPage'
-import ProfileEditPage from './pages/customer/ProfileEditPage'
+import telecomLogo from '../../assets/telecom.jpeg'
+import ChangePasswordPage from './ChangePasswordPage'
+import ControlCenterPage from './ControlCenterPage'
+import ProfileDetailsPage from './ProfileDetailsPage'
+import ProfileEditPage from './ProfileEditPage'
 
 const navItems = ['Dashboard', 'Services', 'Wallet', 'Rate Card', 'Reports', 'Settings', 'Control Center', 'API & Documentation']
 const demoPages = {
@@ -1122,5 +1122,4 @@ function CustomerDashboard() {
 }
 
 export default CustomerDashboard
-
 
