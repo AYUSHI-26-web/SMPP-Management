@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import telecomLogo from './assets/telecom.jpeg'
+import telecomLogo from '../../assets/telecom.jpeg'
 
 function WalletIcon() {
   return (

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-function ProfileDetailsPage({ Icon, liftMotion, onEdit }) {
+function ProfileDetailsPage({ Icon, onEdit }) {
   return (
     <motion.section className="mx-auto max-w-7xl pt-5" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.32 }}>
       <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-red-600 via-red-700 to-red-950 p-7 text-white shadow-xl shadow-red-100/80">
