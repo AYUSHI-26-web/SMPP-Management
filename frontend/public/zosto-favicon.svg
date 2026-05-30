@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Zosto Telecom</title>
+  <rect width="64" height="64" rx="14" fill="#ef0014" />
+  <path d="M13 18h31v7L25.5 40H45v7H13v-7l18.6-15H13z" fill="#ffffff" />
+  <path d="M46 18h5v29h-5z" fill="#ffffff" opacity=".92" />
+  <path d="M53 18h4v29h-4z" fill="#ffffff" opacity=".75" />
+</svg>
